@@ -1,67 +1,142 @@
-# 🚗 Human-Centered Predictive Regenerative Control
+# 🚗 Human-Centered Predictive Regenerative Control (HPRC)
 
-MATLAB | Simulink | EV Control
+**MATLAB | Simulink | Electric Vehicle Control**
 
-Human-centered regenerative braking control for electric vehicles.
+A human-centered regenerative braking control strategy for electric vehicles that reduces vehicle pitch motion while maintaining braking performance.
 
-## Overview
+---
 
-This project develops a human-centered regenerative braking control system for electric vehicles.
+# Overview
 
-The goal is to reduce uncomfortable pitch motion during braking while maintaining stopping performance.
+This project proposes a **Human-Centered Predictive Regenerative Control (HPRC)** strategy for electric vehicles.
 
-## Key Idea
+Unlike conventional regenerative braking, the proposed controller estimates the driver's braking intention and predicts longitudinal load transfer to adaptively distribute regenerative torque between the front and rear axles.
 
-Conventional regenerative braking applies torque rapidly, which can cause large pitch motion.
+The objective is to improve ride comfort by suppressing vehicle pitch motion without significantly increasing stopping time.
 
-RTSC smooths regenerative torque using a fixed time constant.
+---
 
-HPRC extends this idea by estimating driver braking intention and vehicle load transfer, then adaptively distributing regenerative torque between front and rear axles.
+# Key Features
 
-## Proposed Method
+- Human Intent Estimation
+- Longitudinal Load Transfer Estimation
+- Adaptive Front–Rear Regenerative Torque Distribution
+- Pitch Motion Suppression
+- MATLAB Simulation
+- Simulink-Based Vehicle Model
 
-HPRC v8 consists of:
+---
 
-- Human Intent Estimator
-- Load Transfer Estimator
-- Adaptive Front-Rear Torque Planner
-- Vehicle and Pitch Dynamics Model
+# Control Concept
 
-## Simulation Result
+```text
+Brake Input
+      │
+      ▼
+Human Intent Estimator
+      │
+      ▼
+Load Transfer Estimator
+      │
+      ▼
+Adaptive Torque Planner
+      │
+      ▼
+Front / Rear Regenerative Torque
+      │
+      ▼
+Vehicle Dynamics
+      │
+      ▼
+Reduced Pitch Motion
+```
 
-| Method | Stop Time [s] | Max Pitch Angle [deg] | Max Pitch Rate [deg/s] |
-|---|---:|---:|---:|
-| Conventional | 7.40 | 5.00 | 12.50 |
-| RTSC | 7.80 | 5.00 | 4.6568 |
-| HPRC v6 | 7.84 | 5.00 | 4.6206 |
-| HPRC v7 | 7.81 | 2.30 | 1.9312 |
-| HPRC v8 | 7.81 | 2.153 | 1.9051 |
+---
 
-## Main Result
+# Simulation Results
 
-HPRC v8 reduced maximum pitch rate by approximately 59% compared with fixed RTSC while maintaining almost the same stopping time.
+| Method | Stop Time (s) | Max Pitch Angle (deg) | Max Pitch Rate (deg/s) |
+|---------|--------------:|----------------------:|------------------------:|
+| Conventional | 7.40 | 5.000 | 12.500 |
+| RTSC | 7.80 | 5.000 | 4.6568 |
+| HPRC v6 | 7.84 | 5.000 | 4.6206 |
+| HPRC v7 | 7.81 | 2.300 | 1.9312 |
+| **HPRC v8** | **7.81** | **2.153** | **1.9051** |
 
-## Future Work
+---
 
-- Simulink implementation of HPRC v8
-- Four-wheel independent regenerative torque distribution
-- Road friction estimation
-- Yaw and pitch integrated control
-- Application to e-Axle control
+# Main Achievement
 
-## Figures
+Compared with the fixed-time-constant RTSC strategy, **HPRC v8**
 
-### HPRC v8 Control Timeline
-![HPRC Timeline](hprc_v8_figure_8.png)
+- reduced maximum pitch angle by approximately **57%**
+- reduced maximum pitch rate by approximately **59%**
+- maintained nearly the same stopping time
 
-### Pitch Rate Comparison
+These results demonstrate that predictive front–rear regenerative torque distribution can significantly improve ride comfort without sacrificing braking performance.
+
+---
+
+# System Architecture
+
+![System Architecture](HPRC_System_Architecture.png)
+
+---
+
+# Figures
+
+## HPRC v8 Control Timeline
+
+![Timeline](hprc_v8_figure_8.png)
+
+---
+
+## Pitch Rate Comparison
+
 ![Pitch Rate](hprc_v8_figure_2.png)
 
-### Front-Rear Torque Distribution
+---
+
+## Front–Rear Regenerative Torque Distribution
+
 ![Front-Rear Torque](hprc_v8_figure_4.png)
 
-### Load Transfer Estimation
+---
+
+## Estimated Longitudinal Load Transfer
+
 ![Load Transfer](hprc_v8_figure_6.png)
 
+---
 
- 
+# Future Work
+
+- Simulink implementation of HPRC
+- Four-wheel independent regenerative braking control
+- Road friction estimation
+- Integrated yaw–pitch control
+- Application to e-Axle control
+- Hardware-in-the-loop (HIL) validation
+- Experimental validation using an electric vehicle
+
+---
+
+# Development Environment
+
+- MATLAB R2026a
+- Simulink
+- Windows 11
+
+---
+
+# Keywords
+
+- MATLAB
+- Simulink
+- Electric Vehicle
+- Regenerative Braking
+- Vehicle Dynamics
+- Predictive Control
+- Human-Centered Control
+- Model-Based Development
+- e-Axle
