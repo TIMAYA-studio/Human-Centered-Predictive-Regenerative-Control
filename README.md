@@ -52,16 +52,16 @@ HPRC v8 reduced maximum pitch rate by approximately 59% compared with fixed RTSC
 ## Figures
 
 ### HPRC v8 Control Timeline
-![HPRC Timeline](results/hprc_v8_figure_8.png)
+![HPRC Timeline](hprc_v8_figure_8.png)
 
 ### Pitch Rate Comparison
-![Pitch Rate](results/hprc_v8_figure_2.png)
+![Pitch Rate](hprc_v8_figure_2.png)
 
 ### Front-Rear Torque Distribution
-![Front-Rear Torque](results/hprc_v8_figure_4.png)
+![Front-Rear Torque](hprc_v8_figure_4.png)
 
 ### Load Transfer Estimation
-![Load Transfer](results/hprc_v8_figure_6.png)
+![Load Transfer](hprc_v8_figure_6.png)
 
 
  
