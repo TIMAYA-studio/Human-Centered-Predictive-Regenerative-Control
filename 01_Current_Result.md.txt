@@ -1,0 +1,143 @@
+# Human-centered Predictive Regenerative Control (HPRC)
+
+## Project Objective
+
+Develop a regenerative braking control method that reduces uncomfortable pitch motion during deceleration while maintaining stopping performance.
+
+---
+
+## Vehicle Parameters
+
+Vehicle Mass : 1800 kg
+
+Wheel Radius : 0.32 m
+
+Initial Speed : 100 km/h
+
+Maximum Regenerative Torque : 2500 Nm
+
+Simulation Time : 10 s
+
+---
+
+## Conventional Braking
+
+Stopping Time
+
+7.40 s
+
+Maximum Pitch Rate
+
+12.50 deg/s
+
+---
+
+## RTSC
+
+Stopping Time
+
+7.80 s
+
+Maximum Pitch Rate
+
+4.66 deg/s
+
+Pitch Rate Reduction
+
+62.7 %
+
+---
+
+## Constraint Optimization
+
+Constraint
+
+Stopping Time ≤ 7.70 s
+
+Optimal tau
+
+0.30 s
+
+Stopping Time
+
+7.70 s
+
+Maximum Pitch Rate
+
+5.35 deg/s
+
+Pitch Rate Reduction
+
+57.2 %
+
+---
+
+## Conclusion
+
+RTSC reduces pitch motion significantly.
+
+Constraint optimization balances stopping performance and ride comfort.
+
+Future work is to develop Adaptive HPRC using vehicle speed, brake pedal input and battery condition.
+
+---
+
+## HPRC v6 Final Candidate
+
+### Control Parameters
+
+tau_fast = 0.12 s
+
+tau_comfort = 0.44 s
+
+risk_gain = 0.16
+
+### Simulation Result
+
+Stopping Time
+
+7.84 s
+
+Maximum Pitch Rate
+
+4.6206 deg/s
+
+### Comparison
+
+Conventional braking showed a maximum pitch rate of 12.50 deg/s.
+
+RTSC showed a maximum pitch rate of 4.6568 deg/s.
+
+HPRC v6 showed a maximum pitch rate of 4.6206 deg/s.
+
+### Conclusion
+
+HPRC v6 achieved slightly lower pitch rate than fixed RTSC while maintaining almost the same stopping performance.
+
+This result suggests that estimating driver braking intention and pitch behavior can improve regenerative braking comfort.
+
+---
+
+## HPRC v7 Front-Rear Torque Distribution
+
+HPRC v7 introduces adaptive front-rear regenerative torque distribution.
+
+The baseline distribution is:
+
+Front : 60 %
+
+Rear : 40 %
+
+When pitch rate increases, the controller reduces the front regenerative torque ratio and shifts more torque to the rear side.
+
+This is based on the assumption that excessive front-side regenerative braking increases pitching motion, while rear-side regenerative braking can reduce pitch response.
+
+Simulation result:
+
+Stopping Time : 7.81 s
+
+Maximum Pitch Angle : 2.30 deg
+
+Maximum Pitch Rate : 1.9809 deg/s
+
+Compared with fixed RTSC, HPRC v7 significantly reduced pitch rate while maintaining almost the same stopping time.

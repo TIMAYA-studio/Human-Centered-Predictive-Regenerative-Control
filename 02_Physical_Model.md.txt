@@ -1,0 +1,32 @@
+# Physical Model for HPRC v8.1
+
+## Longitudinal Load Transfer
+
+During regenerative braking, vehicle deceleration causes longitudinal load transfer from the rear axle to the front axle.
+
+The load transfer is estimated by:
+
+ΔF = m a h / L
+
+where:
+
+- m : vehicle mass
+- a : longitudinal deceleration
+- h : center of gravity height
+- L : wheelbase
+
+In this project:
+
+- m = 1800 kg
+- h = 0.55 m
+- L = 2.8 m
+
+This load transfer is used to modify the front-rear regenerative torque distribution.
+
+## Control Concept
+
+When the estimated load transfer becomes large, excessive front regenerative braking may increase pitching motion.
+
+Therefore, HPRC v8 reduces the front torque ratio and shifts part of the regenerative torque to the rear axle.
+
+This approach aims to reduce pitch motion while maintaining regenerative braking performance.
