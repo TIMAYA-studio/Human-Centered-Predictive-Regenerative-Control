@@ -79,7 +79,7 @@ These results demonstrate that predictive front–rear regenerative torque distr
 
 # System Architecture
 
-![System Architecture](HPRC_System_Architecture.png)
+![System Architecture](HPRC_System_Architecture1.png)
 
 ---
 
