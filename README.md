@@ -1,4 +1,8 @@
-# Human-Centered Predictive Regenerative Control (HPRC)
+# 🚗 Human-Centered Predictive Regenerative Control
+
+MATLAB | Simulink | EV Control
+
+Human-centered regenerative braking control for electric vehicles.
 
 ## Overview
 
@@ -60,3 +64,4 @@ HPRC v8 reduced maximum pitch rate by approximately 59% compared with fixed RTSC
 ![Load Transfer](results/hprc_v8_figure_6.png)
 
 
+ 
