@@ -142,7 +142,7 @@ The Simulink implementation achieved approximately **38% reduction** in pitch ra
 
 # System Architecture
 
-![System](HPRC_System_Architecture.png)
+![System](HPRC_System_Architecture1.png)
 
 ---
 
