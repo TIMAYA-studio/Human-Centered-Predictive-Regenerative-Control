@@ -1,5 +1,10 @@
 # 🚗 Human-Centered Predictive Regenerative Control (HPRC)
 
+![MATLAB](https://img.shields.io/badge/MATLAB-R2026a-orange)
+![Simulink](https://img.shields.io/badge/Simulink-Model--Based-blue)
+![Platform](https://img.shields.io/badge/Platform-Windows%2011-lightgrey)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+
 **MATLAB | Simulink | Electric Vehicle Control | Model-Based Development**
 
 A human-centered regenerative braking control strategy for electric vehicles that predicts driver braking intention and longitudinal load transfer to suppress vehicle pitch motion while maintaining braking performance.
@@ -8,11 +13,9 @@ A human-centered regenerative braking control strategy for electric vehicles tha
 
 # Overview
 
-This project proposes a **Human-Centered Predictive Regenerative Control (HPRC)** strategy for electric vehicles.
+This project proposes **Human-Centered Predictive Regenerative Control (HPRC)** for electric vehicles.
 
-Conventional regenerative braking typically distributes regenerative torque using fixed control rules. Although effective for energy recovery, this approach does not explicitly consider driver intention or dynamic vehicle behavior during braking.
-
-The proposed controller estimates the driver's braking intention, predicts longitudinal load transfer, and adaptively distributes regenerative torque between the front and rear axles. The objective is to improve ride comfort by reducing vehicle pitch motion without significantly increasing stopping time.
+The controller estimates driver braking intention, predicts longitudinal load transfer, and adaptively distributes regenerative torque between the front and rear axles. The objective is to improve ride comfort by reducing vehicle pitch motion while maintaining braking performance.
 
 The controller was developed in **MATLAB** and further implemented in **Simulink** using a model-based development (MBD) approach.
 
@@ -23,9 +26,7 @@ The controller was developed in **MATLAB** and further implemented in **Simulink
 - Human Intent Estimation
 - Longitudinal Load Transfer Estimation
 - Adaptive Front–Rear Regenerative Torque Distribution
-- Pitch Motion Suppression
-- MATLAB Implementation
-- Simulink Model-Based Development
+- MATLAB & Simulink Implementation
 - Robustness Evaluation
 - Parameter Sensitivity Analysis
 
@@ -33,7 +34,7 @@ The controller was developed in **MATLAB** and further implemented in **Simulink
 
 # Control Architecture
 
-```
+```text
 Brake Pedal
       │
       ▼
@@ -68,57 +69,37 @@ Vehicle Motion
 | RTSC | 7.80 | 5.000 | 4.6568 |
 | **HPRC v8** | **7.81** | **2.1533** | **1.8991** |
 
-Compared with RTSC, the proposed controller
-
-- Reduced maximum pitch angle by approximately **57%**
-- Reduced maximum pitch rate by approximately **59%**
-- Maintained nearly identical stopping performance
+Compared with RTSC, HPRC v8 reduced maximum pitch angle by approximately **57%** and maximum pitch rate by approximately **59%** while maintaining nearly identical stopping performance.
 
 ---
 
-# Robustness Evaluation
+# Initial Speed Test
 
-## Initial Speed Test
+Vehicle speeds of **40, 60, 80, 100 and 120 km/h** were evaluated.
 
-Vehicle speeds:
-
-- 40 km/h
-- 60 km/h
-- 80 km/h
-- 100 km/h
-- 120 km/h
-
-### Result
-
-- Stable performance over all tested speeds
-- Maximum pitch rate remained approximately **1.90 deg/s**
-- Nearly identical stopping performance across all speed conditions
+The proposed controller maintained stable stopping performance while consistently suppressing pitch motion across all tested speeds.
 
 ---
 
-## Brake Pattern Test
+# Brake Pattern Test
 
-Brake patterns evaluated
+Brake patterns:
 
 - Weak braking
 - Medium braking
 - Strong braking
 - Progressive (Step-up) braking
 
-### Result
-
 | Method | Max Pitch Rate (deg/s) |
 |---------|-----------------------:|
 | RTSC | 2.3372 |
 | **HPRC v8** | **0.9339** |
 
-The proposed controller achieved approximately **60% reduction** in pitch rate during progressive braking.
+Approximately **60% reduction** during progressive braking.
 
 ---
 
-## Road Friction Test
-
-Road friction coefficients were varied to evaluate controller robustness.
+# Road Friction Test
 
 | Road Surface | μ | Method | Stop Time (s) | Max Pitch Rate (deg/s) |
 |--------------|---:|---------|--------------:|-----------------------:|
@@ -132,13 +113,9 @@ Road friction coefficients were varied to evaluate controller robustness.
 | Low-μ Road | 0.3 | RTSC | 10.84 | 3.1576 |
 | Low-μ Road | 0.3 | **HPRC v8** | **10.84** | **1.3341** |
 
-The proposed controller maintained stable braking performance while significantly reducing pitch motion. Under the low-μ road condition, HPRC v8 reduced the maximum pitch rate by approximately **58%** compared with RTSC.
-
 ---
 
 # Parameter Sensitivity
-
-The influence of the parameter **risk_gain** was investigated.
 
 | risk_gain | Stop Time (s) | Max Pitch Rate (deg/s) |
 |-----------:|--------------:|-----------------------:|
@@ -148,25 +125,11 @@ The influence of the parameter **risk_gain** was investigated.
 | **0.18 (Selected)** | **7.81** | **1.8991** |
 | 0.20 | 7.82 | 1.8932 |
 
-Although **risk_gain = 0.20** produced the smallest pitch rate, the improvement over **0.18** was minimal while slightly increasing stopping time.
-
-Therefore, **risk_gain = 0.18** was selected as the best trade-off between ride comfort and braking performance.
+Although 0.20 produced a slightly lower pitch rate, **0.18** was selected as the best trade-off between ride comfort and braking performance.
 
 ---
 
 # Simulink Validation
-
-The HPRC controller was also implemented in **Simulink**.
-
-Unlike the MATLAB numerical simulation, the Simulink model consists of independent subsystems for
-
-- Human Intent Estimator
-- Load Transfer Estimator
-- Front Ratio Planner
-- Torque Distributor
-- Pitch Dynamics
-
-allowing model-based verification of the proposed controller.
 
 | Mode | Stop Time (s) | Max Pitch Rate (Normalized) |
 |------|--------------:|----------------------------:|
@@ -179,40 +142,26 @@ The Simulink implementation achieved approximately **38% reduction** in pitch ra
 
 # Figures
 
-## System Architecture
-
-![System Architecture](results/HPRC_System_Architecture.png)
-
-## HPRC v8 Control Timeline
-
-![Timeline](results/hprc_v8_figure_8.png)
-
-## Pitch Rate Comparison
-
-![Pitch Rate](results/hprc_v8_figure_2.png)
-
-## Front–Rear Torque Distribution
-
-![Front Rear Torque](results/hprc_v8_figure_4.png)
-
-## Estimated Longitudinal Load Transfer
-
-![Load Transfer](results/hprc_v8_figure_6.png)
+```text
+results/
+├── HPRC_System_Architecture.png
+├── hprc_v8_figure_2.png
+├── hprc_v8_figure_4.png
+├── hprc_v8_figure_6.png
+└── hprc_v8_figure_8.png
+```
 
 ---
 
 # Future Work
 
-Future extensions include
-
 - Four-wheel independent regenerative braking
 - Adaptive road friction estimation
-- Integrated pitch–yaw vehicle control
+- Integrated pitch–yaw control
 - e-Axle control
-- Hardware-in-the-loop (HIL) validation
+- Hardware-in-the-loop (HIL)
+- Experimental vehicle validation
 - Real-time embedded implementation
-- Experimental validation using an electric vehicle
-- HPRC v9 with integrated vehicle dynamics
 
 ---
 
@@ -226,34 +175,23 @@ Future extensions include
 
 # Keywords
 
-- Electric Vehicle
-- Regenerative Braking
-- Vehicle Dynamics
-- Human-Centered Control
-- Predictive Control
-- MATLAB
-- Simulink
-- Model-Based Development
-- e-Axle
-- Ride Comfort
+Electric Vehicle, Regenerative Braking, Vehicle Dynamics, Predictive Control, Human-Centered Control, MATLAB, Simulink, Model-Based Development, e-Axle
 
 ---
 
 # Author
 
-## Haruto Doi (土井 陽斗)
+**Haruto Doi (土井 陽斗)**
 
 Faculty of Information Sciences  
 Hiroshima City University
 
-### Research Interests
+**Research Interests**
 
 - Electric Vehicle Control
 - Vehicle Dynamics
 - Regenerative Braking
-- Human-Centered Control
 - MATLAB / Simulink
 - Model-Based Development
-- e-Axle Control
 
 📧 **haruto.doi2005@gmail.com**
