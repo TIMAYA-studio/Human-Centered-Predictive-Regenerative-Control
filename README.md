@@ -7,6 +7,9 @@
 
 **MATLAB | Simulink | Electric Vehicle Control | Model-Based Development**
 
+🌐 **Project Website**  
+https://timaya-studio.github.io/Human-Centered-Predictive-Regenerative-Control/
+
 A human-centered regenerative braking control strategy for electric vehicles that predicts driver braking intention and longitudinal load transfer to suppress vehicle pitch motion while maintaining braking performance.
 
 ---
