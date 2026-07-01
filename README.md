@@ -140,17 +140,33 @@ The Simulink implementation achieved approximately **38% reduction** in pitch ra
 
 ---
 
-# Figures
+# System Architecture
 
-```text
-results/
-├── HPRC_System_Architecture.png
-├── hprc_v8_figure_2.png
-├── hprc_v8_figure_4.png
-├── hprc_v8_figure_6.png
-└── hprc_v8_figure_8.png
-```
+![System](HPRC_System_Architecture.png)
 
+---
+
+# Pitch Angle Comparison
+
+![Pitch Angle](hprc_v8_figure_2.png)
+
+---
+
+# Pitch Rate Comparison
+
+![Pitch Rate](hprc_v8_figure_4.png)
+
+---
+
+# Front / Rear Regenerative Torque
+
+![Torque](hprc_v8_figure_6.png)
+
+---
+
+# Estimated Load Transfer
+
+![Load Transfer](hprc_v8_figure_8.png)
 ---
 
 # Future Work
